@@ -1,7 +1,7 @@
 # Metal Gear Solid: Peace Walker Noesis Plugin
 
 
-This is a plugin for [Noesis]https://richwhitehouse.com/index.php?content=inc_projects.php&showproject=91 which allows the user to view textured 3D Models and animations from the game Metal Gear Solid: Peace Walker. There is currently a specific type of model format without a vertex buffer which still requires research. An error will be shown when you encounter a file of this type.
+This is a plugin for [Noesis](https://richwhitehouse.com/index.php?content=inc_projects.php&showproject=91) which allows the user to view textured 3D Models and animations from the game Metal Gear Solid: Peace Walker. There is currently a specific type of model format without a vertex buffer which still requires research. An error will be shown when you encounter a file of this type.
 
 
 ![picture](https://github.com/Jayveer/MGS-MDP-Noesis/blob/master/model.png?raw=true)
