@@ -40,6 +40,7 @@ void bindMesh(MdpMesh* mesh, BYTE* fileBuffer, noeRAPI_t* rapi, std::vector<floa
     int uOffset = 0;
     int wOffset = 0;
     int numWeights = 0;
+    float uvScl = 1.0f / 4096.0f;
     rpgeoDataType_e nType = RPGEODATA_BYTE;
 
     switch (mesh->flag & 0x0F) {
@@ -125,8 +126,8 @@ void bindMesh(MdpMesh* mesh, BYTE* fileBuffer, noeRAPI_t* rapi, std::vector<floa
         int uPos = pos + uOffset;
         uint16_t* uvOffset = (uint16_t*)&fileBuffer[mesh->vertexBufferOffset + uPos];
 
-        uvs.push_back(uvOffset[0] * 0.000251);
-        uvs.push_back(uvOffset[1] * 0.000251);
+        uvs.push_back(uvOffset[0] * uvScl);
+        uvs.push_back(uvOffset[1] * uvScl);
 
         int vPos = pos + vOffset;
         int16_t* vOffset = (int16_t*)&fileBuffer[mesh->vertexBufferOffset + vPos];
