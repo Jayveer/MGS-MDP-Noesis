@@ -14,7 +14,6 @@ bool checkMDP(BYTE* fileBuffer, int bufferLen, noeRAPI_t* rapi) {
 
 noesisModel_t* loadMDP(BYTE* fileBuffer, int bufferLen, int& numMdl, noeRAPI_t* rapi) {
     void* ctx = rapi->rpgCreateContext();
-    rapi->rpgSetOption(RPGOPT_GEOTWOSIDEDPRV, 1);
 
     MdpHeader*  header  = (MdpHeader*) fileBuffer;
     MdpBone*    bones   = (MdpBone*  )&fileBuffer[header->boneOffset ];

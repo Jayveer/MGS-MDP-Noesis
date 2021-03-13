@@ -6,11 +6,16 @@ void makeFaceBuffer(uint32_t numFaceIndex, MdpFace* face, noeRAPI_t* rapi, BYTE*
     std::vector<uint16_t> faceBuffer;
     int m = 0;
     int pos = 0;
-
     for (int i = 0; i < numFaceIndex; i++) {
         int j = 0;
+        bool flip = 0;
         for (; j < face[i].faceBufferSize - 2; j++) {
-            faceBuffer.push_back(m); faceBuffer.push_back(m + 1); faceBuffer.push_back(m + 2);
+            if (!flip) {
+                faceBuffer.push_back(m); faceBuffer.push_back(m + 1); faceBuffer.push_back(m + 2);
+            } else {
+                faceBuffer.push_back(m); faceBuffer.push_back(m + 2); faceBuffer.push_back(m + 1);
+            }
+            flip = !flip;
             m++;
         }
 
