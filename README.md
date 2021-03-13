@@ -6,6 +6,9 @@ This is a plugin for [Noesis](https://richwhitehouse.com/index.php?content=inc_p
 
 ![picture](https://github.com/Jayveer/MGS-MDP-Noesis/blob/master/model.png?raw=true)
 
+### Latest Changes
+ - Fixed a problem where textures weren't auto applying on export
+ - Fixed winding order
 
 ### To Do
  - Reasearch how model files with no vertex buffer are read.

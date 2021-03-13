@@ -57,15 +57,18 @@ public:
 	~Txp();
 	int getNumInfo();
 	void getAllTextures();
+	void setRapi(noeRAPI_t* rapi);
 	uint32_t getStrcodeAtIndex(int idx);
 	bool containsTexture(uint32_t strcode);
 	uint8_t* getTextureIndexed(int idx, int& size, int& bpp);
 	uint8_t* getTexture(uint32_t strcode, int& size, int& bpp);
 private:
+	noeRAPI_t* rapi;
 	uint8_t* txpData;
 	TxpHeader* header;
 
 	int getIdx(uint32_t strcode);
 	uint8_t* unswizzle(TxpImage* image, int& size);
+	uint8_t* decompress(uint8_t* src, int decompressedSize);
 	uint8_t* paintPixels(TxpColour* clut, uint8_t* pixels, int width, int height, int maxWidth, int& size, int16_t xOffset, int16_t yOffset);
 };

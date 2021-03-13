@@ -75,8 +75,8 @@ void bindMat(MdpFace* face, BYTE* fileBuffer, noeRAPI_t* rapi, CArrayList<noesis
     noeMat->name = rapi->Noesis_PooledString(matName);
 
     //set tex name
-    std::string texStr = intToHexString(mat->strcode);
-    char texName[7];
+    std::string texStr = intToHexString(mat->strcode) + ".tga";
+    char texName[11];
     strcpy_s(texName, texStr.c_str());
 
     //check if texture already exists

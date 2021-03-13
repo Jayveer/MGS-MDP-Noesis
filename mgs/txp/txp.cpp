@@ -21,6 +21,10 @@ int Txp::getNumInfo() {
 	return header->numInfo;
 }
 
+void Txp::setRapi(noeRAPI_t* rapi) {
+	this->rapi = rapi;
+}
+
 bool Txp::containsTexture(uint32_t strcode) {
 	return getIdx(strcode) > -1;
 }
@@ -109,20 +113,16 @@ void unswizzle8(uint8_t* src, uint8_t* dst, int width, int height) {
 	}
 }
 
-uint8_t* decompress(uint8_t* src, int decompressedSize) {
-	noeRAPI_t rapi = noeRAPI_t();
-	void* ctx = rapi.rpgCreateContext();
+uint8_t* Txp::decompress(uint8_t* src, int decompressedSize) {
 	uint32_t compressedSize = *(uint32_t*)src;
 
 	uint8_t* compressedData = src + 4;
 	uint8_t* decompressedData = new uint8_t[decompressedSize];
 
-	rapi.Decomp_Inflate(src, decompressedData, compressedSize, decompressedSize);
+	rapi->Decomp_Inflate(src, decompressedData, compressedSize, decompressedSize);
 
-	rapi.rpgDestroyContext(ctx);
 	return decompressedData;	
 }
-
 
 uint8_t* Txp::unswizzle(TxpImage* image, int& size) {
 	int width         = image->width & 0xFFF;
