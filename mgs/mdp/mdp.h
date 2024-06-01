@@ -46,7 +46,7 @@ struct MdpHeader {
 	uint32_t groupOffset;
 	uint32_t meshOffset;
 	uint32_t unknown;
-	uint32_t pad0;
+	uint32_t internal;
 	uint32_t pad1;
 	uint32_t pad2;
 	vec4 max;
