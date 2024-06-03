@@ -46,7 +46,8 @@ struct MdpHeader {
 	uint32_t groupOffset;
 	uint32_t meshOffset;
 	uint32_t unknown;
-	uint32_t internal;
+        //"pad0" used as a pointer to an internal GE Command on the MDP of the m870
+	uint32_t internalGeCMDOffset;
 	uint32_t pad1;
 	uint32_t pad2;
 	vec4 max;
